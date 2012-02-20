@@ -1,0 +1,17 @@
+(itISalive string)
+(assign itISalive "Hello, World!")
+
+## Hello world!
+
+(if (or true false) (println "True!") (println "False!"))
+
+(while true (println "Looping"))
+
+(pi real)
+(assign pi 3.14159)
+
+(let ((a int)(b real)) (((assign a 2)(println a))((assign b (/ 3.14159 2))(sin b))))
+
+(d int)
+(assign d (+ * 2 3 4))
+
