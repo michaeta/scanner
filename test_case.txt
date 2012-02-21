@@ -1,3 +1,5 @@
+(())
+
 (itISalive string)
 (assign itISalive "Hello, World!")
 
@@ -14,4 +16,6 @@
 
 (d int)
 (assign d (+ * 2 3 4))
+
+
 

@@ -153,8 +153,11 @@ def parse_token(token):
     else:
         return Token(new_tid(), token)
 
-def scanner(line):
+def scan(line):
     tokens = []
+    comment = re.compile("^##.*")
+    if comment.match(line):
+        return tokens
     curr_token = ''
     in_string = False
     for i in line:
@@ -180,18 +183,21 @@ def scanner(line):
                 if in_string:
                     curr_token += i
                     continue
-                tokens.append(parse_token(curr_token))
+                if curr_token != '':
+                    tokens.append(parse_token(curr_token))
                 curr_token = ''
 
     return tokens
 
-comment = re.compile("^##.*")
+def main():
+    with open("test_case.txt") as fp:
+        lines = fp.readlines()
+    for line in lines:
+        tokens = scan(line)
+        for token in tokens:
+            print token,
+        print
 
-for line in fileinput.input():
-    if comment.match(line):
-        continue
-    result = scanner(line)
-    for i in result:
-        print i,
-    print
+if __name__ == "__main__":
+    main()
 
